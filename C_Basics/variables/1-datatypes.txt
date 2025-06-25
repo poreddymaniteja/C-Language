@@ -1,0 +1,14 @@
+#Data types and their format specifiers 
+
+ signed int          - %d  - 4bytes
+ unsigned int        - %u  - 4bytes
+ short signed int    - %hd - 2bytes
+ unsigned short int  - %hu - 2bytes
+ long signed int     - %ld - 8bytes
+ long unsigned int   - %lu - 8bytes
+ signed char         - %c  - 1bytes
+ unsigned char       - %c  - 1bytes
+ double              - %lf - 8bytes
+ long double         - %LF - 16bytes
+ float               - %f  - 4bytes
+
