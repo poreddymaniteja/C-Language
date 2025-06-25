@@ -1,0 +1,237 @@
+## 1-gdb-sample.c: classroom example program, attached this mail
+	
+	int Change_Value = 0;
+	
+	  int Sum_it (int, int);
+	  void error_with_code (void);
+	
+	  /******************************************/
+	  /*                                           */
+	  /* main () - main routine                    */
+(gdb) l
+	  /*                                           */
+	 /******************************************/
+	
+	 int main (void)
+	 {
+	    int Arg_1 = 20, Arg_2 = 40;
+	    int i;
+	
+	
+Break;	     for (i = 0; i < 10; i++) {
+(gdb) l
+	        if (Arg_1 > Arg_2)
+	             Arg_2 = Sum_it (Arg_1, Arg_2);
+	        else
+	            Arg_1 = Sum_it (Arg_1, Arg_2);
+	     }
+	
+	     error_with_code ();
+	 }   
+	 /* End of main() */
+	 /**********************************************************/
+(gdb) l
+	 /*                                                        */
+	 /* Sum_it() - This routine adds two numbers and returns the
+	 result */
+	 /*                                                        */
+	 /**********************************************************/
+	 int Sum_it (int a, int b)
+	
+	 {
+	     return a+b;
+	
+(gdb) l
+	 } /* End of Sum_it */
+	
+	 /**********************************************************/
+	 /*                                                        */
+	 /* error_with_code() - This routine has an intended bug.
+	 */
+	 /*
+	 */
+	/***************************************************************
+	*/
+(gdb) l
+Break;	 void error_with_code(void)
+	 {
+	    int divide_value;
+	    int result;
+	
+	    divide_value = Change_Value;
+	    result = 10 / divide_value;
+	    return ;
+	
+	 } /* End of error_with_code() */
+(gdb) l
+	
+(gdb) b 20
+Breakpoint 1 at 0x1143: file 1-sample.c, line 20.
+(gdb) b error_with_code 
+Breakpoint 2 at 0x11a8: file 1-sample.c, line 52.
+(gdb) i b
+Num     Type           Disp Enb Address            What
+1       breakpoint     keep y   0x0000000000001143 in main at 1-sample.c:20
+2       breakpoint     keep y   0x00000000000011a8 in error_with_code at 1-sample.c:52
+(gdb) r
+Starting program: /home/km/KM_GITLAB/km56aesd14/Gnu_DeBug/Debug/control_statements/sample_dbg 
+
+Breakpoint 1, main () at 1-sample.c:20
+	     for (i = 0; i < 10; i++) {
+(gdb) s
+	        if (Arg_1 > Arg_2)
+(gdb) s
+	            Arg_1 = Sum_it (Arg_1, Arg_2);
+(gdb) s
+Sum_it (a=21845, b=1431654864) at 1-sample.c:38
+	 {
+(gdb) s
+	     return a+b;
+(gdb) s
+	 } /* End of Sum_it */
+(gdb) s
+main () at 1-sample.c:20
+	     for (i = 0; i < 10; i++) {
+(gdb) s
+	        if (Arg_1 > Arg_2)
+(gdb) s
+	             Arg_2 = Sum_it (Arg_1, Arg_2);
+(gdb) s
+Sum_it (a=20, b=40) at 1-sample.c:38
+	 {
+(gdb) s
+	     return a+b;
+(gdb) s
+	 } /* End of Sum_it */
+(gdb) s
+main () at 1-sample.c:20
+	     for (i = 0; i < 10; i++) {
+(gdb) s
+	        if (Arg_1 > Arg_2)
+(gdb) s
+	            Arg_1 = Sum_it (Arg_1, Arg_2);
+(gdb) s
+Sum_it (a=60, b=40) at 1-sample.c:38
+	 {
+(gdb) s
+	     return a+b;
+(gdb) s
+	 } /* End of Sum_it */
+(gdb) s
+main () at 1-sample.c:20
+	     for (i = 0; i < 10; i++) {
+(gdb) s
+	        if (Arg_1 > Arg_2)
+(gdb) s
+	             Arg_2 = Sum_it (Arg_1, Arg_2);
+(gdb) s
+Sum_it (a=60, b=100) at 1-sample.c:38
+	 {
+(gdb) s
+	     return a+b;
+(gdb) s
+	 } /* End of Sum_it */
+(gdb) s
+main () at 1-sample.c:20
+	     for (i = 0; i < 10; i++) {
+(gdb) s
+	        if (Arg_1 > Arg_2)
+(gdb) s
+	            Arg_1 = Sum_it (Arg_1, Arg_2);
+(gdb) s
+Sum_it (a=160, b=100) at 1-sample.c:38
+	 {
+(gdb) s
+	     return a+b;
+(gdb) s
+	 } /* End of Sum_it */
+(gdb) s
+main () at 1-sample.c:20
+	     for (i = 0; i < 10; i++) {
+(gdb) s
+	        if (Arg_1 > Arg_2)
+(gdb) s
+	             Arg_2 = Sum_it (Arg_1, Arg_2);
+(gdb) s
+Sum_it (a=160, b=260) at 1-sample.c:38
+	 {
+(gdb) s
+	     return a+b;
+(gdb) s
+	 } /* End of Sum_it */
+(gdb) s
+main () at 1-sample.c:20
+	     for (i = 0; i < 10; i++) {
+(gdb) s
+	        if (Arg_1 > Arg_2)
+(gdb) s
+	            Arg_1 = Sum_it (Arg_1, Arg_2);
+(gdb) s
+Sum_it (a=420, b=260) at 1-sample.c:38
+	 {
+(gdb) s
+	     return a+b;
+(gdb) s
+	 } /* End of Sum_it */
+(gdb) s
+main () at 1-sample.c:20
+	     for (i = 0; i < 10; i++) {
+(gdb) s
+	        if (Arg_1 > Arg_2)
+(gdb) s
+	             Arg_2 = Sum_it (Arg_1, Arg_2);
+(gdb) s
+Sum_it (a=420, b=680) at 1-sample.c:38
+	 {
+(gdb) s
+	     return a+b;
+(gdb) s
+	 } /* End of Sum_it */
+(gdb) s
+main () at 1-sample.c:20
+	     for (i = 0; i < 10; i++) {
+(gdb) s
+	        if (Arg_1 > Arg_2)
+(gdb) s
+	            Arg_1 = Sum_it (Arg_1, Arg_2);
+(gdb) s
+Sum_it (a=1100, b=680) at 1-sample.c:38
+	 {
+(gdb) s
+	     return a+b;
+(gdb) s
+	 } /* End of Sum_it */
+(gdb) s
+main () at 1-sample.c:20
+	     for (i = 0; i < 10; i++) {
+(gdb) s
+	        if (Arg_1 > Arg_2)
+(gdb) s
+	             Arg_2 = Sum_it (Arg_1, Arg_2);
+(gdb) s
+Sum_it (a=1100, b=1780) at 1-sample.c:38
+	 {
+(gdb) s
+	     return a+b;
+(gdb) s
+	 } /* End of Sum_it */
+(gdb) s
+main () at 1-sample.c:20
+	     for (i = 0; i < 10; i++) {
+(gdb) s
+	     error_with_code ();
+(gdb) s
+
+Breakpoint 2, error_with_code () at 1-sample.c:52
+	 {
+(gdb) 
+	    divide_value = Change_Value;
+(gdb) 
+	    result = 10 / divide_value;
+(gdb) p divide_value=10
+$1 = 10
+	    return ;
+(gdb) s
+	 } /* End of error_with_code() */
+
+

@@ -1,0 +1,53 @@
+## Access variable value with pointer?
+
+#include<stdio.h>
+int main()
+{
+int a;
+printf("Enter the value :");
+scanf("%d",&a);
+int *ptr=&a;
+printf("ptr = %d\n",*ptr);
+return 0;
+}
+
+/*output - Breakpoint 1, main () at 4_variable_pointer.c:5
+5	{
+(gdb) s
+7	printf("Enter the value :");
+(gdb) n
+8	scanf("%d",&a);
+(gdb) n
+Enter the value :112233445566778899887665
+9	int *ptr=&a;
+(gdb) n
+10	printf("ptr = %d\n",*ptr);
+(gdb) p *ptr
+$2 = -1
+(gdb) q
+A debugging session is active.
+
+
+Reading symbols from ./a.out_dbg...done.
+(gdb) b main
+Breakpoint 1 at 0x722: file 4_variable_pointer.c, line 5.
+(gdb) s
+The program is not being run.
+(gdb) r
+Starting program: /home/km/git.lab/Km56aesd18/GDB/a.out_dbg 
+
+Breakpoint 1, main () at 4_variable_pointer.c:5
+5	{
+(gdb) s
+7	printf("Enter the value :");
+(gdb) n
+8	scanf("%d",&a);
+(gdb) n
+Enter the value :10
+9	int *ptr=&a;
+(gdb) n
+10	printf("ptr = %d\n",*ptr);
+(gdb) p *ptr
+$1 = 10
+(gdb) r
+*/

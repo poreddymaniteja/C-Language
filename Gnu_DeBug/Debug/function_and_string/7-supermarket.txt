@@ -1,0 +1,226 @@
+## supermarket
+
+#include<stdio.h>  
+void stock();
+void purchase();
+void sales();
+
+int stocks = 100;
+
+int main()
+{
+    int choice;
+    int n = 1;
+
+    while (n > 0)
+    {
+        printf("1. check stocks\n");
+        printf("2. sell stocks\n");
+        printf("3. purchase stocks\n");
+        printf("4. quit\n");
+        printf("\n\n");
+        printf("enter choice :");
+        scanf("%d", &choice); 
+        switch (choice)
+        {
+            case 1: stock();
+                break;
+            case 2: sales();
+                break;
+            case 3: purchase();
+                break;
+            case 4: printf("Thank YOU\n");
+                n = 0;
+                break;
+            default: printf("Invalid choice\n");
+                break;
+        }
+    }
+    return 0;
+}
+
+void stock()
+{
+    printf("available stocks are %d\n", stocks);
+}
+
+void purchase()
+{
+    int b;
+    printf("enter the no of stocks to purchase :");
+    scanf("%d", &b);
+    stocks = stocks + b;
+    if (stocks+b > 100)
+        printf("storage is full\n");
+
+    else
+    {
+        stocks = stocks + b;
+    }
+}
+
+void sales()
+{
+    int a;
+    printf("enter no of stocks to sell:");
+    scanf("%d", &a);
+    if (stocks >= a)
+        stocks = stocks - a;
+    else
+        printf("out of stocks\n");
+}
+
+
+/*
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from ./stock_management...done.
+(gdb) break main
+Breakpoint 1 at 0x772: file 7_stock_management.c, line 9.
+(gdb) break purchase
+Breakpoint 2 at 0x8a5: file 7_stock_management.c, line 46.
+(gdb) r
+Starting program: /home/km/km_gitlab/km56aesd10/debugg/stock_management 
+
+Breakpoint 1, main () at 7_stock_management.c:9
+9	{
+(gdb) n
+11	    int n = 1;
+(gdb) n
+13	    while (n > 0)
+(gdb) n
+15	        printf("1. check stocks\n");
+(gdb) p stocks
+$1 = 100
+(gdb) p b
+No symbol "b" in current context.
+(gdb) n
+1. check stocks
+16	        printf("2. sell stocks\n");
+(gdb) n
+2. sell stocks
+17	        printf("3. purchase stocks\n");
+(gdb) n
+3. purchase stocks
+18	        printf("4. quit\n");
+(gdb) n
+4. quit
+19	        printf("\n\n");
+(gdb) n
+
+
+20	        printf("enter choice :");
+(gdb) n
+21	        scanf("%d", &choice); 
+(gdb) n
+enter choice :3
+22	        switch (choice)
+(gdb) n
+28	            case 3: purchase();
+(gdb) n
+
+Breakpoint 2, purchase () at 7_stock_management.c:46
+46	{
+(gdb) n
+48	    printf("enter the no of stocks to purchase :");
+(gdb) n
+49	    scanf("%d", &b);
+(gdb) n
+enter the no of stocks to purchase :10
+50	    stocks = stocks + b;
+(gdb) s
+51	    if (stocks+b < 100)
+(gdb) n
+56	        stocks = stocks + b;
+(gdb) n
+58	}
+(gdb) n
+main () at 7_stock_management.c:29
+29	                break;
+(gdb) n
+13	    while (n > 0)
+(gdb) n
+15	        printf("1. check stocks\n");
+(gdb) n
+1. check stocks
+16	        printf("2. sell stocks\n");
+(gdb) n
+2. sell stocks
+17	        printf("3. purchase stocks\n");
+(gdb) n
+3. purchase stocks
+18	        printf("4. quit\n");
+(gdb) n
+4. quit
+19	        printf("\n\n");
+(gdb) n
+
+
+20	        printf("enter choice :");
+(gdb) n
+21	        scanf("%d", &choice); 
+(gdb) n
+enter choice :3
+22	        switch (choice)
+(gdb) 3
+Undefined command: "3".  Try "help".
+(gdb) n
+28	            case 3: purchase();
+(gdb) n
+
+Breakpoint 2, purchase () at 7_stock_management.c:46
+46	{
+(gdb) n
+48	    printf("enter the no of stocks to purchase :");
+(gdb) n
+49	    scanf("%d", &b);
+(gdb) n
+enter the no of stocks to purchase :10
+50	    stocks = stocks + b;
+(gdb) s
+51	    if (stocks+b < 100)
+(gdb) s
+56	        stocks = stocks + b;
+(gdb) s
+58	}
+(gdb) s
+main () at 7_stock_management.c:29
+29	                break;
+(gdb) s
+13	    while (n > 0)
+(gdb) s
+15	        printf("1. check stocks\n");
+(gdb) n
+1. check stocks
+16	        printf("2. sell stocks\n");
+(gdb) n
+2. sell stocks
+17	        printf("3. purchase stocks\n");
+(gdb) n
+3. purchase stocks
+18	        printf("4. quit\n");
+(gdb) n
+4. quit
+19	        printf("\n\n");
+(gdb) n
+
+
+20	        printf("enter choice :");
+(gdb) n
+21	        scanf("%d", &choice); 
+(gdb) n
+enter choice :3
+22	        switch (choice)
+(gdb) q

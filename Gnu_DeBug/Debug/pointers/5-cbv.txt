@@ -1,0 +1,69 @@
+## call by value?
+
+#include<stdio.h>
+void value(int x,int y);
+int main()
+{
+int a,b;
+printf("Enter the value :");
+scanf("%d %d",&a,&b);
+value(a,b);
+//printf("After the values are a=%d b=%d\n",a,b);
+return 0;
+}
+
+void value(int a,int b)
+{
+int temp;
+temp=a;
+a=b;
+b=temp;
+printf("After swaping the value are a=%d b=%d\n",a,b);
+}
+
+/*output - reakpoint 1, main () at 5_call_value.c:6
+6	{
+(gdb) s
+8	printf("Enter the value :");
+(gdb) n
+9	scanf("%d %d",&a,&b);
+(gdb) n
+Enter the value :10 20
+10	value(a,b);
+(gdb) s
+value (a=10, b=20) at 5_call_value.c:18
+18	temp=a;
+(gdb) s
+19	b=a;
+(gdb) s
+20	b=temp;
+(gdb) n
+21	printf("After swaping the value are a=%d b=%d\n",a,b);
+(gdb) p a
+$1 = 10
+(gdb) p b
+$2 = 10
+
+
+Breakpoint 1, main () at 5_call_value.c:6
+6	{
+(gdb) s
+8	printf("Enter the value :");
+(gdb) n
+9	scanf("%d %d",&a,&b);
+(gdb) n
+Enter the value :10 20
+10	value(a,b);
+(gdb) s
+value (a=10, b=20) at 5_call_value.c:18
+18	temp=a;
+(gdb) s
+19	a=b;
+(gdb) s
+20	b=temp;
+(gdb) n
+21	printf("After swaping the value are a=%d b=%d\n",a,b);
+(gdb) p a
+$1 = 20
+(gdb) p b
+$2 = 10

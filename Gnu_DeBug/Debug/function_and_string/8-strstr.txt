@@ -1,0 +1,212 @@
+## strstr() - sub string finding
+
+#include<stdio.h>
+int my_strstr(char str[],char str2[]);
+int main()
+{
+	char str1[30],str2[30];
+	int d;
+	printf("Enter the main string :");
+	scanf("%[^\n]s",str1);
+	printf("ENter the sub string :");
+	scanf(" %[^\n]s",str2);
+	d=my_strstr(str1,str2);
+	if(d==1)
+		printf("The substring is present in the main string");
+	else if(d==0)
+		printf("The sub string does not present in the main string"); 
+	return 0;
+}
+
+
+int my_strstr(char str1[],char str2[])
+{
+	int i,n,l,m,j,count=0;
+	for(i=0;str2[i];i++);
+	l=i;
+	for(i=0;str1[i]!=0;i++)
+	{
+		if(str1[i]==str2[0])
+		{
+			j=0;  count=0;  m=i;
+			while(str2[j]!=0)
+			{
+				if(str2[j]==str1[m])
+				{
+					count++;m++;j++;
+				}
+				else
+					break;
+			}
+		}
+			if(count==l)
+			return 0;
+	}
+	return 1;
+}
+/*output - Reading symbols from ./a.out_dbg...done.
+(gdb) b main
+Breakpoint 1 at 0x722: file 8_string_string.c, line 6.
+(gdb) r
+Starting program: /home/km/git.lab/Km56aesd18/GDB/a.out_dbg 
+
+Breakpoint 1, main () at 8_string_string.c:6
+6	{
+(gdb) s
+9		printf("Enter the main string :");
+(gdb) n
+10		scanf("%[^\n]s",str1);
+(gdb) n
+Enter the main string :tammana tarak ram
+11		printf("ENter the sub string :");
+(gdb) n
+12		scanf(" %[^\n]s",str2);
+(gdb) n
+ENter the sub string :tarak
+13		d=my_strstr(str1,str2);
+(gdb) s
+my_strstr (str1=0x7fffffffdeb0 "tammana tarak ram", str2=0x7fffffffded0 "tarak") at 8_string_string.c:24
+24		int i,n,l,m,j,count=0;
+(gdb) s
+25		for(i=0;str2[i];i++);
+(gdb) n
+26		l=i;
+(gdb) s
+27		for(i=0;str1[i]!=0;i++)
+(gdb) s
+29			if(str1[i]==str2[0])
+(gdb) s
+31				j=0;  count=0;  m=i;
+(gdb) s
+32				while(str2[j]!=0)
+(gdb) s
+34					if(str2[j]==str1[m])
+(gdb) s
+36						count++;m++;j++;
+(gdb) s
+32				while(str2[j]!=0)
+(gdb) s
+34					if(str2[j]==str1[m])
+(gdb) s
+36						count++;m++;j++;
+(gdb) s
+32				while(str2[j]!=0)
+(gdb) s
+34					if(str2[j]==str1[m])
+(gdb) s
+39						break;
+(gdb) s
+42				if(count==l)
+(gdb) s
+27		for(i=0;str1[i]!=0;i++)
+(gdb) s
+29			if(str1[i]==str2[0])
+(gdb) s
+42				if(count==l)
+(gdb) s
+27		for(i=0;str1[i]!=0;i++)
+(gdb) s
+29			if(str1[i]==str2[0])
+(gdb) s
+42				if(count==l)
+(gdb) s
+27		for(i=0;str1[i]!=0;i++)
+(gdb) n
+29			if(str1[i]==str2[0])
+(gdb) n
+42				if(count==l)
+(gdb) n
+27		for(i=0;str1[i]!=0;i++)
+(gdb) n
+29			if(str1[i]==str2[0])
+(gdb) n
+42				if(count==l)
+(gdb) n
+27		for(i=0;str1[i]!=0;i++)
+(gdb) n
+29			if(str1[i]==str2[0])
+(gdb) f
+#0  my_strstr (str1=0x7fffffffdeb0 "tammana tarak ram", str2=0x7fffffffded0 "tarak") at 8_string_string.c:29
+29			if(str1[i]==str2[0])
+(gdb) f
+#0  my_strstr (str1=0x7fffffffdeb0 "tammana tarak ram", str2=0x7fffffffded0 "tarak") at 8_string_string.c:29
+29			if(str1[i]==str2[0])
+(gdb) s
+42				if(count==l)
+(gdb) s
+27		for(i=0;str1[i]!=0;i++)
+(gdb) s
+29			if(str1[i]==str2[0])
+(gdb) s
+42				if(count==l)
+(gdb) s
+27		for(i=0;str1[i]!=0;i++)
+(gdb) s
+29			if(str1[i]==str2[0])
+(gdb) s
+42				if(count==l)
+(gdb) s
+27		for(i=0;str1[i]!=0;i++)
+(gdb) s
+29			if(str1[i]==str2[0])
+(gdb) s
+31				j=0;  count=0;  m=i;
+(gdb) s
+32				while(str2[j]!=0)
+(gdb) s
+34					if(str2[j]==str1[m])
+(gdb) s
+36						count++;m++;j++;
+(gdb) s
+32				while(str2[j]!=0)
+(gdb) s
+34					if(str2[j]==str1[m])
+(gdb) s
+36						count++;m++;j++;
+(gdb) s
+32				while(str2[j]!=0)
+(gdb) s
+34					if(str2[j]==str1[m])
+(gdb) s
+36						count++;m++;j++;
+(gdb) s
+32				while(str2[j]!=0)
+(gdb) s
+34					if(str2[j]==str1[m])
+(gdb) s
+36						count++;m++;j++;
+(gdb) s
+32				while(str2[j]!=0)
+(gdb) s
+34					if(str2[j]==str1[m])
+(gdb) s
+36						count++;m++;j++;
+(gdb) s
+32				while(str2[j]!=0)
+(gdb) s
+42				if(count==l)
+(gdb) s
+43				return 0;
+(gdb) s
+46	}
+(gdb) s
+main () at 8_string_string.c:14
+14		if(d==1)
+(gdb) s
+16		else if(d==0)
+(gdb) s
+17			printf("The sub string does not present in the main string"); 
+(gdb) r
+
+
+
+
+Reading symbols from ./a.out_dbg...done.
+(gdb) b mian
+Function "mian" not defined.
+Make breakpoint pending on future shared library load? (y or [n]) n
+(gdb) r
+Starting program: /home/km/git.lab/Km56aesd18/GDB/a.out_dbg 
+Enter the main string :happy birth day
+ENter the sub string :birth
+The substring is present in the main string*/
