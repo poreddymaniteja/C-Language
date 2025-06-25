@@ -1,0 +1,19 @@
+LDA 4000h
+MVI D 08h
+MVI C 00h
+Label: RAR
+CC Label2
+DCR D
+JNZ Label
+MOV A C
+ANI FEh
+JZ Label3
+HLT
+
+Label2: INR C
+RET
+
+Label3: MVI A 22h
+
+STA 6000h
+HLT
